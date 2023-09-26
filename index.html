@@ -126,7 +126,9 @@
                     findName.innerHTML = "Name: " + snapshot.val().name;
                     findColor.innerHTML = "Favorite Color: " + snapshot.val().color;
                     findHeight.innerHTML = "Height: " + snapshot.val().height;
-                    findImage.innerHTML = "Image: " + snapshot.val().image;
+                    findImage.innerHTML = "Image: ";
+                    //show image
+                    //findImage.innerHTML = "<img src = " + snapshot.val().image + ">";
                     findAge.innerHTML = "Age: " + snapshot.val().number;
                 } else {
                     alert("No data found");
