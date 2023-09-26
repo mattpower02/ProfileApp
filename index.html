@@ -7,20 +7,35 @@
     <title>Document</title>
     <style>
         body {text-align: center;}
-        #findDetails {text-align: center; width: 50%; background-color: floralwhite; color: rgb(89, 89, 89);}
+        #enterDetails {float: left; width: 50%;  background-color: darkslategray; color: floralwhite;}
+        #findDetails {float: left; width: 50%; background-color: floralwhite; color: darkslategray;}
         input {width: 120px;}
     </style>
 </head>
 <body>
-    <img src="mattgrambanner.png" alt="MattGram" width="50%">
+    <img src = "mattgrambanner.png" alt = "MattGram Banner" width = "50%">
+    <div id="enterDetails">
+        <h1>Enter details</h1>
+
+        <h4>ID</h4> 
+        <input id="enterID" type="text"> 
+
+        <h4>Name</h4> 
+        <input id="enterName" type="text"> 
+
+        <h4>Age</h4> 
+        <input id="enterAge" type="number"> <br><br>
+
+        <button id="insert">INSERT</button>
+        <button id="update">UPDATE</button>
+        <button id="remove">REMOVE</button> <br><br>
+    </div>
 
     <div id="findDetails">
         <h1>Find by ID</h1>
         <h4>ID</h4>
         <input id="findID" type="text"> <br><br>
         <button id="find">FIND</button>
-        <h3>FIRST ID: FPJ66jvyVlMIE4zcVkfDAOwM5aj2</h3>
-        <h3>SECOND ID: Z9H2Bj39YFU3iwYK4Q2PMswsRGt2</h3>
         <h3 id="findName" type="text"></h3>
         <h3 id="findAge" type="number"></h3> <br><br>
     </div>
@@ -60,6 +75,8 @@
         //Copy and Paste the URL from near the top of the CDN you pasted in from firebase
         // (the one where you imported "initializeApp" from),
         //but change "firebase-app" to "firebase-database"
+        
+        
 
         const db = getDatabase();
 
@@ -93,11 +110,11 @@
         function FindData() {
             const dbref = ref(db);
 
-            get(child(dbref,findID.value))
+            get(child(dbref, "People/" + findID.value))
             .then((snapshot)=>{
                 if(snapshot.exists()){
-                    findName.innerHTML = "Name: " + snapshot.val().name;
-                    findAge.innerHTML = "Number: " + snapshot.val().number;
+                    findName.innerHTML = "Name: " + snapshot.val().Name;
+                    findAge.innerHTML = "Age: " + snapshot.val().Age;
                 } else {
                     alert("No data found");
                 }
@@ -108,6 +125,18 @@
             
         }
 
+        function UpdateData(){
+            update(ref(db, "People/"+ enterID.value),{
+                Name: enterName.value,
+                Age: enterAge.value
+            })
+            .then(()=>{
+                alert("Data updated successfully");
+            })
+            .catch((error)=>{
+                alert(error);
+            });
+        }
 
         function RemoveData(){
             remove(ref(db, "People/"+ enterID.value))
