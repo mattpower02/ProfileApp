@@ -7,7 +7,7 @@
     <title>Document</title>
     <style>
         body {text-align: center;}
-        #findDetails {width: 50%; background-color: floralwhite; color: rgb(89, 89, 89);}
+        #findDetails {text-align: center; width: 50%; background-color: floralwhite; color: rgb(89, 89, 89);}
         input {width: 120px;}
     </style>
 </head>
@@ -93,11 +93,11 @@
         function FindData() {
             const dbref = ref(db);
 
-            get(child(dbref, "People/" + findID.value))
+            get(child(dbref,findID.value))
             .then((snapshot)=>{
                 if(snapshot.exists()){
-                    findName.innerHTML = "Name: " + snapshot.val().Name;
-                    findAge.innerHTML = "Age: " + snapshot.val().Age;
+                    findName.innerHTML = "Name: " + snapshot.val().name;
+                    findAge.innerHTML = "Number: " + snapshot.val().number;
                 } else {
                     alert("No data found");
                 }
@@ -108,18 +108,6 @@
             
         }
 
-        function UpdateData(){
-            update(ref(db, "People/"+ enterID.value),{
-                Name: enterName.value,
-                Age: enterAge.value
-            })
-            .then(()=>{
-                alert("Data updated successfully");
-            })
-            .catch((error)=>{
-                alert(error);
-            });
-        }
 
         function RemoveData(){
             remove(ref(db, "People/"+ enterID.value))
