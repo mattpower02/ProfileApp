@@ -39,7 +39,12 @@
         <input id="findID" type="text"> <br><br>
         <button id="find">FIND</button>
         <h3 id="findName" type="text"></h3>
-        <h3 id="findAge" type="number"></h3> <br><br>
+        <h3 id="findAge" type="number"></h3> 
+        <h3 id="findHeight" type="text"></h3>
+        <h3 id="findImage" type="text"></h3>
+        <h3 id="findColor" type="text"></h3>
+        
+        <br><br><br><br><br><br><br><br>
     </div>
     
 
@@ -88,6 +93,9 @@
         var findID = document.querySelector("#findID");
         var findName = document.querySelector("#findName");
         var findAge = document.querySelector("#findAge");
+        var findImage = document.querySelector("#findImage");
+        var findHeight = document.querySelector("#findHeight");
+        var findColor = document.querySelector("#findColor");
       
 
         var insertBtn = document.querySelector("#insert");
@@ -116,6 +124,9 @@
             .then((snapshot)=>{
                 if(snapshot.exists()){
                     findName.innerHTML = "Name: " + snapshot.val().name;
+                    findColor.innerHTML = "Favorite Color: " + snapshot.val().color;
+                    findHeight.innerHTML = "Height: " + snapshot.val().height;
+                    findImage.innerHTML = "Image: " + snapshot.val().image;
                     findAge.innerHTML = "Age: " + snapshot.val().number;
                 } else {
                     alert("No data found");
