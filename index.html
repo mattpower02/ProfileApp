@@ -110,7 +110,7 @@
         function FindData() {
             const dbref = ref(db);
 
-            get(child(dbref, "People/" + findID.value))
+            get(child(dbref,findID.value))
             .then((snapshot)=>{
                 if(snapshot.exists()){
                     findName.innerHTML = "Name: " + snapshot.val().Name;
