@@ -39,11 +39,20 @@
         "TabNavigationOptions": {
             "tabBarVisible": true
         },
+        "TabNavigatorIcon": {},
+        "DrawerNavigationOptions": {},
+        "StackNavigationOptions": {
+            "headerStyle": {}
+        },
         "ScreenOrientation": "portrait",
         "DesignerHeight": 667,
         "DesignerWidth": 375,
         "ResponsiveWidth": 375,
         "isSimple": true,
+        "navigationOptions": {
+            "headerStyle": {}
+        },
+        "tabNavigationOptions": {},
         "BackgroundColor": "rgba(155, 155, 155, 1)"
     },
     "children": [
@@ -83,6 +92,7 @@
                     "top": "0%",
                     "display": "flex"
                 },
+                "capInsets": {},
                 "ParentId": "5e968231-a7df-4741-a1ce-f5030ac05d97",
                 "position": "absolute",
                 "edgeOffsets": 0
@@ -167,6 +177,7 @@
                     "color": "rgba(0, 0, 0, 1)",
                     "fontSize": 18,
                     "fontStyle": "normal",
+                    "textShadowOffset": {},
                     "letterSpacing": 0,
                     "textDecorationLine": "none",
                     "textDecorationStyle": "solid",
@@ -284,6 +295,7 @@
                     "color": "rgba(0, 0, 0, 1)",
                     "fontSize": 18,
                     "fontStyle": "normal",
+                    "textShadowOffset": {},
                     "letterSpacing": 0,
                     "textDecorationLine": "none",
                     "textDecorationStyle": "solid",
